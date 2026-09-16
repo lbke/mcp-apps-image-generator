@@ -1,3 +1,9 @@
+OpenAI API key must be defined at server level via env "OPENROUTER_API_KEY"
+
+API key can be passed as tool input for BYOK but most AI host will frown upon this and may block the tool call
+
+---
+
 # MCP Server built with mcp-use
 
 This is an MCP server project bootstrapped with [`create-mcp-use-app`](https://mcp-use.com/docs/typescript/getting-started/quickstart).

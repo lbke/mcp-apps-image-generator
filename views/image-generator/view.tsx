@@ -16,7 +16,7 @@ export default function McpApp() {
         Authorization: `Bearer ${view.toolOutput?.apiKey}`,
       },
       body: JSON.stringify({
-        model: "gpt-image-1.5",
+        model: "gpt-image-1-mini",
         prompt: view.toolOutput?.prompt,
         n: 1,
         size: "1024x1024",

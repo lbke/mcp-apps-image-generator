@@ -34,8 +34,9 @@ const generateImageInputSchema = z.object({
   prompt: z.string().max(1024).describe("Image generation prompt"),
   apiKey: z
     .string()
+    .optional()
     .describe(
-      "OpenAI API key - NOT SECURE AT ALL but this is just an experiment, the key has strong usage limitation fit for this demo.",
+      "OpenAI API key (optional, will use the key setup at server level via env if not provided)",
     ),
 })
 
@@ -77,9 +78,13 @@ export const showApp = server.tool(
     },
   },
   async ({ prompt, apiKey }, ctx) => {
+    //@ts-ignore
+    console.log(import.meta.env["OPENAI_API_KEY"])
+    // @ts-ignore
+    const finalApiKey = apiKey || process.env["OPENAI_API_KEY"] // import.meta.env["OPENAI_API_KEY"]
     return {
       content: [{ type: "text", text: "Opening image generator" }],
-      structuredContent: { prompt, apiKey },
+      structuredContent: { prompt, apiKey: finalApiKey },
     };
   }
 );
