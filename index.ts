@@ -62,6 +62,7 @@ export const showApp = server.tool(
           // To load the image in dev
           "http://127.0.0.1:3000",
           "http://localhost:3000",
+          "https://wild-spark-3dg4a.run.mcp-use.com/mcp"
         ],
         connectDomains: [
           // To call openai from the iframe
